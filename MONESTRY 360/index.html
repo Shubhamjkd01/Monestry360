@@ -1,0 +1,217 @@
+<!DOCTYPE html
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Monastery360 – Digitize and Showcase Sikkim's Monasteries for Tourism and Cultural Preservation" />
+  <title>Monastery360 | Sikkim Digital Heritage</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1a365d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Monastery360" />
+  
+  <!-- iOS Icons -->
+  <link rel="apple-touch-icon" href="images/icon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="images/icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="167x167" href="images/icon-167x167.png" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="branding">
+        <img src="images/emblem.png" alt="Government of Sikkim Emblem" class="emblem" onerror="this.style.display='none'" />
+        <div>
+          <h1>Monastery360</h1>
+          <p class="tagline">A Digital Heritage Platform for Sikkim's Monasteries</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#tours">Virtual Tours</a>
+        <a href="#map">Interactive Map</a>
+        <a href="#archives">Digital Archives</a>
+        <a href="#calendar">Cultural Calendar</a>
+        <a href="#govt">Govt Facilities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Discover the Sacred Heritage of Sikkim</h2>
+      <p>Immerse yourself in 200+ monasteries through virtual reality, explore ancient archives, and access complete government travel services.</p>
+      <div class="cta">
+        <a class="btn primary" href="#tours">Explore Virtual Tours</a>
+        <a class="btn" href="#map">Open Map</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="features container">
+    <div class="feature">
+      <h3>360° Virtual Tours</h3>
+      <p>Panoramic views of monastery interiors and surroundings, with multilingual narration.</p>
+    </div>
+    <div class="feature">
+      <h3>Interactive Map</h3>
+      <p>Geo-tagged monasteries, routes, and nearby attractions. Works offline with preloaded tiles.</p>
+    </div>
+    <div class="feature">
+      <h3>Digital Archives</h3>
+      <p>Scanned manuscripts, murals, and documents with AI-powered search and categorization.</p>
+    </div>
+    <div class="feature">
+      <h3>Smart Audio Guide</h3>
+      <p>Location-based audio guides using GPS or Bluetooth beacons, with offline mode.</p>
+    </div>
+    <div class="feature">
+      <h3>Cultural Calendar</h3>
+      <p>Festival schedules, rituals, and booking options for guided participation.</p>
+    </div>
+    <div class="feature">
+      <h3>Government Facilities</h3>
+      <p>Permits, transport links, helpline numbers, and grievance redressal integrated.</p>
+    </div>
+  </section>
+
+  <section id="tours" class="container section">
+    <h2>Virtual Tours</h2>
+    <div class="tour-grid">
+      <div class="tour-card">
+        <div class="tour360" id="tour-sample">Loading 360° view…</div>
+        <div class="tour-info">
+          <h4>Rumtek Monastery</h4>
+          <p>Experience a sample 360° panorama. Replace with real equirectangular image later.</p>
+          <button class="btn small" data-play-audio="rumtek">Play Narration</button>
+        </div>
+      </div>
+      <div class="tour-card">
+        <img class="thumb" src="images/sample-monastery.jpg" alt="Sample Monastery" onerror="this.style.display='none'" />
+        <div class="tour-info">
+          <h4>Pemayangtse Monastery</h4>
+          <p>Explore galleries, murals, and prayer halls through interactive media.</p>
+          <button class="btn small" data-play-audio="pemayangtse">Play Narration</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="map" class="map-section">
+    <div class="container">
+      <h2>Interactive Map</h2>
+      <div id="mapView" class="map-view" aria-label="Map of Sikkim Monasteries"></div>
+      <div class="map-legend">
+        <span class="badge monastery">Monasteries</span>
+        <span class="badge attraction">Attractions</span>
+        <span class="badge route">Routes</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="archives" class="container section">
+    <h2>Digital Archives</h2>
+    <div class="archive-controls">
+      <input type="search" id="archiveSearch" placeholder="Search manuscripts, murals, documents…" />
+      <select id="archiveFilter">
+        <option value="all">All</option>
+        <option value="manuscript">Manuscripts</option>
+        <option value="mural">Murals</option>
+        <option value="document">Documents</option>
+      </select>
+    </div>
+    <div id="archiveResults" class="archive-grid"></div>
+  </section>
+
+  <section id="calendar" class="container section">
+    <h2>Cultural Calendar</h2>
+    <div id="calendarList" class="calendar-list"></div>
+  </section>
+
+  <section id="govt" class="container section">
+    <h2>Government Facilities & Services</h2>
+    <div class="govt-grid">
+      <div class="govt-card">
+        <h4>Tourist Permits</h4>
+        <p>Integrated link to apply for Protected Area Permits (PAP) and Inner Line Permits (ILP).</p>
+        <a class="btn small" href="#" id="applyPermit">Apply for Permit</a>
+      </div>
+      <div class="govt-card">
+        <h4>Transport & Connectivity</h4>
+        <ul>
+          <li>STS Bus Timetables</li>
+          <li>Taxi Union Contacts</li>
+          <li>Helipad/Airport info</li>
+        </ul>
+      </div>
+      <div class="govt-card">
+        <h4>Emergency & Helplines</h4>
+        <ul>
+          <li>Tourist Helpline: 1800-xxx-xxxx</li>
+          <li>Police: 100</li>
+          <li>Ambulance: 102</li>
+        </ul>
+      </div>
+      <div class="govt-card">
+        <h4>Grievance Redressal</h4>
+        <p>Submit complaints and feedback directly to the Department of Tourism & H&TE.</p>
+        <button class="btn small" id="openGrievance">Submit Grievance</button>
+      </div>
+      <div class="govt-card">
+        <h4>Accommodation Booking</h4>
+        <p>Find and book government guest houses, forest lodges, and approved homestays.</p>
+        <a class="btn small" href="#" id="bookAccommodation">Book Stay</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container section">
+    <h2>Contact & Participation</h2>
+    <p>Local communities and monasteries can contribute photos, stories, and documents.</p>
+    <form id="contributeForm">
+      <div class="row">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <div class="row">
+        <input type="text" name="affiliation" placeholder="Monastery/Community (optional)" />
+      </div>
+      <div class="row">
+        <textarea name="message" placeholder="Share your content idea or description" required></textarea>
+      </div>
+      <div class="row">
+        <input type="file" name="files" multiple accept="image/*,.pdf,.tif,.tiff" />
+      </div>
+      <button class="btn primary" type="submit">Submit Contribution</button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        © <span id="year"></span> Government of Sikkim — Department of Higher & Technical Education. 
+        Built for cultural preservation and tourism enablement.
+      </p>
+      <p class="small">Dataset Link: required by Govt — placeholder endpoints included. Replace with actual datasets.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/pannellum/build/pannellum.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/pannellum/build/pannellum.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/app.js"></script>
+</body>
+</html>>
